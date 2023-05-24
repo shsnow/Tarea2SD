@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "async": "^3.2.4",
+    "node-rdkafka": "^2.16.0",
+    "threads": "^1.7.0",
+    "worker": "^0.4.0"
+  }
+}

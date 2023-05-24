@@ -1,0 +1,53 @@
+version: "2"
+
+services:
+  zookeeper:
+    container_name: zookeeper
+    image: docker.io/bitnami/zookeeper:3.8
+    ports:
+      - "2181:2181"
+    volumes:
+      - "zookeeper_data:/bitnami"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  kafka:
+    container_name: kafka
+    image: docker.io/bitnami/kafka:3.4
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    volumes:
+      - "kafka_data:/bitnami"
+    environment:
+      #- KAFKA_BROKER_ID=1
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_ENABLE_KRAFT=no
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      #- KAFKA_CFG_LISTENERS=PLAINTEXT://localhost:9092
+      ##- KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+      #- KAFKA_CFG_ADVERTISED_LISTENERS=//kafka:9092
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:29092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka:9092,EXTERNAL://localhost:29092
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=CLIENT
+    depends_on:
+      - zookeeper
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:management
+    #environment:
+      #- RABBITMQ_DEFAULT_USER=guest
+      #- RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - "rabbitmq_data:/bitnami"
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
+  rabbitmq_data:
+    driver: local
+  
