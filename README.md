@@ -1,6 +1,8 @@
 # Tarea2SD
 Tarea sistemas distribuidos sobre Kafka y RabbitMQ
 
+# Situación
+La situación en la que nos pusimos para desarrollar el trabajo se trata de un sistema de seguimiento de pedidos en tiempo real, donde cada vez que haya un cambio como por ejemplo que el pedido se está cocinando o está en camino, los Consumers puedan recibir la información instantáneamente.
 
 Video Tarea 2 Sistemas Distribuidos
 https://drive.google.com/drive/folders/1JTLXfmlwHgBZAQwwRl_OnyAs1YfxsTce?usp=sharing
