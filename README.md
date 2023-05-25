@@ -33,7 +33,7 @@ cd Tarea2SD
   luego dentro de la carpeta de kafka
   ```
   # Kafka
-  ```
+  
   npm install
   ```
   node consumerKafka.cjs
