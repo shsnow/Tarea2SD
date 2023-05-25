@@ -8,7 +8,7 @@ https://drive.google.com/drive/folders/1JTLXfmlwHgBZAQwwRl_OnyAs1YfxsTce?usp=sha
 # Tarea 2 - Sistemas Distribuidos
 Integrantes: Jonas Oviedo - Maximiliano Bustos
 - Lenguaje: NodeJS (JavaScript) v18..
-### Instalación
+
 Se debe estar en la carpeta principal
 ```
 cd Tarea2SD
@@ -21,21 +21,21 @@ cd Tarea2SD
   ```
   Dentro de la carpeta Kafka
   ```
-  RabbitMQ
-  ---
+  # RabbitMQ
+  ```
   npm install
     Dentro de la carpeta ejecutamos los comandos
     ```
     node consumersRabbit.js
-    ---
+    ```
     python3 producerRabbit.py
-  ----
+  ```
   luego dentro de la carpeta de kafka
-  -
-  Kafka
-  ---
+  ```
+  # Kafka
+  ```
   npm install
-  ---
+  ```
   node consumerKafka.cjs
     ```
   node producerKafka.js
